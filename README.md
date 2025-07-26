@@ -1,24 +1,15 @@
 # Temperature-Monitory-System
-const int buttonPin = 2;   // Push button connected to D2
-int counter = 0;
-int buttonState = 0;
-int lastButtonState = 0;
 
-void setup() {
-  pinMode(buttonPin, INPUT);
-  Serial.begin(9600);      // Start Serial Monitor
-}
+COMPANY : CODTECH IT SOLUTIONS
 
-void loop() {
-  buttonState = digitalRead(buttonPin);
+NAME : VIGNESWARI V
 
-  // Rising edge detection (button press)
-  if (buttonState == HIGH && lastButtonState == LOW) {
-    counter++;
-    Serial.print("Button Pressed: ");
-    Serial.println(counter);
-    delay(200); // Debounce delay
-  }
+INTERN ID : 
 
-  lastButtonState = buttonState;
-}
+DOMAIN :  EMBEDDED SYSTEMS
+
+DURATION : 4 WEEKS
+
+MENTOR : NEELA SANTHOSH
+
+#OUTPUT:
