@@ -1,16 +1,24 @@
 # Temperature-Monitory-System
-As part of my internship project, I developed a basic Temperature Monitoring System using an Arduino UNO and a DHT11 temperature sensor. The objective was to continuously read the surrounding temperature and display it in real-time using the serial monitor of the Arduino IDE.
+const int buttonPin = 2;   // Push button connected to D2
+int counter = 0;
+int buttonState = 0;
+int lastButtonState = 0;
 
-The system works by collecting temperature data from the DHT11 sensor and sending it to the microcontroller. The Arduino then processes the data and outputs the temperature value through the serial monitor. This project helped me understand the interfacing of sensors, basic data acquisition, and real-time monitoring.
+void setup() {
+  pinMode(buttonPin, INPUT);
+  Serial.begin(9600);      // Start Serial Monitor
+}
 
-Tools and Components Used:
+void loop() {
+  buttonState = digitalRead(buttonPin);
 
-Arduino UNO
+  // Rising edge detection (button press)
+  if (buttonState == HIGH && lastButtonState == LOW) {
+    counter++;
+    Serial.print("Button Pressed: ");
+    Serial.println(counter);
+    delay(200); // Debounce delay
+  }
 
-DHT11 Temperature Sensor
-
-Jumper Wires
-
-USB Cable
-
-Arduino IDE
+  lastButtonState = buttonState;
+}
